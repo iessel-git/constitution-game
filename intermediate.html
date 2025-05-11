@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intermediate Level - Constitution Quest</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9fdfd;
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2d3436;
+    }
+
+    .question-container {
+      max-width: 650px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #f0f4f8;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .scenario {
+      font-style: italic;
+      margin-bottom: 1.2rem;
+      color: #555;
+    }
+
+    .question {
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+
+    .choices button {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #2d98da;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .choices button:hover {
+      background-color: #2471a3;
+    }
+
+    .feedback {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .back-button a {
+      color: #2d98da;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>⚖️ Intermediate Quiz</h1>
+  <div class="question-container">
+    <div class="scenario">
+      A police officer searches someone's home without a warrant or probable cause.
+    </div>
+    <div class="question">
+      Which amendment is most relevant in protecting citizens in this situation?
+    </div>
+    <div class="choices">
+      <button onclick="checkAnswer(this, false)">1st Amendment</button>
+      <button onclick="checkAnswer(this, false)">2nd Amendment</button>
+      <button onclick="checkAnswer(this, true)">4th Amendment</button>
+      <button onclick="checkAnswer(this, false)">8th Amendment</button>
+    </div>
+    <div class="feedback" id="feedback"></div>
+  </div>
+
+  <div class="back-button">
+    <a href="game.html">← Back to Level Selection</a>
+  </div>
+
+  <script>
+    function checkAnswer(button, isCorrect) {
+      const feedback = document.getElementById('feedback');
+      if (isCorrect) {
+        feedback.textContent = "✅ Correct! The 4th Amendment protects against unreasonable searches and seizures.";
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = "❌ Incorrect. Try again!";
+        feedback.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>
