@@ -1,0 +1,68 @@
+{
+  "beginner": [
+    {
+      "question": "What is the supreme law of the land?",
+      "choices": [
+        "The Constitution",
+        "The Bill of Rights",
+        "The Declaration of Independence",
+        "The Articles of Confederation"
+      ],
+      "answer": "The Constitution"
+    },
+    {
+      "question": "Who was the first president of the United States?",
+      "choices": [
+        "George Washington",
+        "Abraham Lincoln",
+        "Thomas Jefferson",
+        "John Adams"
+      ],
+      "answer": "George Washington"
+    }
+  ],
+  "intermediate": [
+    {
+      "question": "What year was the U.S. Constitution ratified?",
+      "choices": [
+        "1776",
+        "1787",
+        "1791",
+        "1801"
+      ],
+      "answer": "1787"
+    },
+    {
+      "question": "How many amendments does the U.S. Constitution have?",
+      "choices": [
+        "10",
+        "27",
+        "13",
+        "50"
+      ],
+      "answer": "27"
+    }
+  ],
+  "advanced": [
+    {
+      "question": "What is the main purpose of the preamble of the U.S. Constitution?",
+      "choices": [
+        "To establish the government structure",
+        "To explain the goals of the government",
+        "To outline the rights of citizens",
+        "To set the terms of the presidency"
+      ],
+      "answer": "To explain the goals of the government"
+    },
+    {
+      "question": "Which amendment gave women the right to vote?",
+      "choices": [
+        "15th Amendment",
+        "19th Amendment",
+        "26th Amendment",
+        "13th Amendment"
+      ],
+      "answer": "19th Amendment"
+    }
+  ]
+}
