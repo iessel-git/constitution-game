@@ -1,77 +1,67 @@
-// Initialize game state variables
 let currentQuestionIndex = 0;
 let score = 0;
-let shuffledQuestions = [];
+let timer = 45;
+let interval;
+let questions = [
+  {
+    question: "Congress shall have power... To regulate commerce with foreign Nations, and among the several States, and with the ____.",
+    options: ["Merchants", "Tribes", "Governors", "Territories"],
+    answer: "Tribes"
+  },
+  // Add more questions here...
+];
 
-const loadQuestions = (level, callback) => {
-  fetch(`questions.json`)
-    .then(response => response.json())
-    .then(data => {
-      shuffledQuestions = shuffle(data[level]);
-      callback();
-    })
-    .catch(error => console.error('Error loading questions:', error));
+const questionText = document.getElementById('question-text');
+const optionsContainer = document.getElementById('options');
+const timerDisplay = document.getElementById('timer');
+const currentQuestionDisplay = document.getElementById('current-question');
+const nextButton = document.getElementById('next');
+const submitButton = document.getElementById('submit');
+
+const startTimer = () => {
+  interval = setInterval(() => {
+    timer--;
+    timerDisplay.textContent = timer;
+    if (timer <= 0) {
+      clearInterval(interval);
+      alert("Time's up!");
+    }
+  }, 1000);
 };
 
-const shuffle = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]]; // Swap elements
-  }
-  return array;
-};
-
-const displayQuestion = (question, containerId) => {
-  const container = document.getElementById(containerId);
-  container.innerHTML = `
-    <div class="scenario">${question.question}</div>
-    <div class="choices">
-      ${question.choices.map(choice => `
-        <button onclick="checkAnswer('${choice}', '${question.answer}')">${choice}</button>
-      `).join('')}
-    </div>
-  `;
+const loadQuestion = () => {
+  const currentQuestion = questions[currentQuestionIndex];
+  questionText.textContent = currentQuestion.question;
+  optionsContainer.innerHTML = '';
+  currentQuestion.options.forEach(option => {
+    const button = document.createElement('button');
+    button.textContent = option;
+    button.onclick = () => checkAnswer(option, currentQuestion.answer);
+    optionsContainer.appendChild(button);
+  });
+  currentQuestionDisplay.textContent = `${currentQuestionIndex + 1}/10`;
 };
 
 const checkAnswer = (selectedAnswer, correctAnswer) => {
-  const feedbackElement = document.createElement('div');
-  feedbackElement.classList.add('feedback');
   if (selectedAnswer === correctAnswer) {
     score++;
-    feedbackElement.textContent = '✔️ Correct!';
-  } else {
-    feedbackElement.textContent = `❌ Incorrect! The correct answer was: ${correctAnswer}`;
   }
-  document.getElementById('quiz').appendChild(feedbackElement);
-  setTimeout(() => displayNextQuestion(shuffledQuestions), 1000); // Wait before showing next question
+  nextButton.disabled = false;
 };
 
-const displayNextQuestion = (questions) => {
+const nextQuestion = () => {
+  currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
-    const question = questions[currentQuestionIndex];
-    displayQuestion(question, 'quiz');
-    currentQuestionIndex++;
+    loadQuestion();
+    nextButton.disabled = true;
   } else {
-    document.getElementById('quiz').innerHTML = `<h3>🎉 You completed the game! Your final score is: ${score}</h3>`;
-    saveProgress();
+    alert(`Game Over! Your score: ${score}`);
   }
 };
 
-const showScore = (containerId) => {
-  document.getElementById(containerId).textContent = `Score: ${score}`;
-};
+nextButton.addEventListener('click', nextQuestion);
 
-const saveProgress = () => {
-  // Optional: save progress in local storage or send to backend for tracking
-  localStorage.setItem('gameScore', score);
-};
-
-const markLevelComplete = (level) => {
-  // Optional: mark level complete in local storage or backend
-  localStorage.setItem(`${level}Complete`, true);
-};
-
-// Start the game when loaded
-window.onload = () => {
-  loadQuestions('beginner', () => { displayNextQuestion(shuffledQuestions); });
-};
+document.addEventListener('DOMContentLoaded', () => {
+  loadQuestion();
+  startTimer();
+});
