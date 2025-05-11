@@ -61,6 +61,13 @@
       font-weight: bold;
     }
 
+    .score-display {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #2d3436;
+    }
+
     .back-button {
       text-align: center;
       margin-top: 2rem;
@@ -74,37 +81,29 @@
 </head>
 <body>
   <h1>⚖️ Intermediate Quiz</h1>
-  <div class="question-container">
-    <div class="scenario">
-      A police officer searches someone's home without a warrant or probable cause.
-    </div>
-    <div class="question">
-      Which amendment is most relevant in protecting citizens in this situation?
-    </div>
-    <div class="choices">
-      <button onclick="checkAnswer(this, false)">1st Amendment</button>
-      <button onclick="checkAnswer(this, false)">2nd Amendment</button>
-      <button onclick="checkAnswer(this, true)">4th Amendment</button>
-      <button onclick="checkAnswer(this, false)">8th Amendment</button>
-    </div>
-    <div class="feedback" id="feedback"></div>
-  </div>
-
+  <div class="question-container" id="quiz"></div>
+  <div class="score-display" id="scoreDisplay"></div>
   <div class="back-button">
     <a href="game.html">← Back to Level Selection</a>
   </div>
 
+  <script src="game.js"></script>
   <script>
-    function checkAnswer(button, isCorrect) {
-      const feedback = document.getElementById('feedback');
-      if (isCorrect) {
-        feedback.textContent = "✅ Correct! The 4th Amendment protects against unreasonable searches and seizures.";
-        feedback.style.color = 'green';
+    function displayNextQuestion(questions) {
+      if (currentQuestionIndex < questions.length) {
+        const question = questions[currentQuestionIndex];
+        displayQuestion(question, 'quiz');
+        currentQuestionIndex++;
       } else {
-        feedback.textContent = "❌ Incorrect. Try again!";
-        feedback.style.color = 'red';
+        document.getElementById('quiz').innerHTML = '<h3>🎉 You completed the Intermediate Level!</h3>';
+        markLevelComplete('intermediate');
       }
     }
+
+    loadQuestions('intermediate', () => {
+      displayNextQuestion(shuffledQuestions);
+      showScore('scoreDisplay');
+    });
   </script>
 </body>
 </html>
