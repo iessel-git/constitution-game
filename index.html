@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Constitution Quest - Main Menu</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f0e3;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .menu button {
+      padding: 1rem;
+      background-color: #4b6584;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .menu button:hover {
+      background-color: #3867d6;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧩 Constitution Quest</h1>
+  <div class="menu">
+    <button onclick="location.href='game.html'">🎮 Start Game</button>
+    <button onclick="location.href='classroom.html'">🧑‍🏫 Classroom Mode</button>
+    <button onclick="location.href='learn.html'">📚 Learn Mode</button>
+    <button onclick="location.href='achievements.html'">🏆 Achievements</button>
+    <button onclick="location.href='profile.html'">👤 My Profile</button>
+    <button onclick="location.href='settings.html'">⚙️ Settings</button>
+  </div>
+</body>
+</html>
