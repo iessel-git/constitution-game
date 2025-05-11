@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Level - Constitution Quest</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 2rem;
+      color: #222;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1e272e;
+    }
+
+    .question-container {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #ffffff;
+      border-left: 8px solid #1e272e;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+    }
+
+    .choices button {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #3742fa;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .choices button:hover {
+      background-color: #273c75;
+    }
+
+    .feedback {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .back-button a {
+      color: #3742fa;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>📜 Advanced Quiz</h1>
+  <div class="question-container">
+    <div class="question">
+      In the landmark case *McCulloch v. Maryland* (1819), what constitutional principle was reinforced by the Supreme Court?
+    </div>
+    <div class="choices">
+      <button onclick="checkAnswer(this, true)">The supremacy of federal laws over state laws</button>
+      <button onclick="checkAnswer(this, false)">The right to bear arms</button>
+      <button onclick="checkAnswer(this, false)">Freedom of the press</button>
+      <button onclick="checkAnswer(this, false)">Protection from cruel and unusual punishment</button>
+    </div>
+    <div class="feedback" id="feedback"></div>
+  </div>
+
+  <div class="back-button">
+    <a href="game.html">← Back to Level Selection</a>
+  </div>
+
+  <script>
+    function checkAnswer(button, isCorrect) {
+      const feedback = document.getElementById('feedback');
+      if (isCorrect) {
+        feedback.textContent = "✅ Correct! McCulloch v. Maryland affirmed the supremacy clause in Article VI of the Constitution.";
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = "❌ Incorrect. Try again!";
+        feedback.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>
