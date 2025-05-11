@@ -1,61 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Constitution Quest - Main Menu</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constitution Quest - Game Levels</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f8f0e3;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f9fdfd;
+      padding: 4rem;
       color: #333;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
     }
 
     h1 {
-      margin-bottom: 1rem;
-      color: #2c3e50;
+      color: #2d3436;
     }
 
-    .menu {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: 90%;
-      max-width: 400px;
-    }
-
-    .menu button {
-      padding: 1rem;
-      background-color: #4b6584;
+    .level-btn {
+      display: inline-block;
+      margin: 1rem;
+      padding: 1rem 2rem;
+      background-color: #2d98da;
       color: white;
-      border: none;
-      border-radius: 10px;
       font-size: 1.2rem;
-      cursor: pointer;
+      border-radius: 8px;
+      text-decoration: none;
       transition: background-color 0.3s ease;
     }
 
-    .menu button:hover {
-      background-color: #3867d6;
+    .level-btn:hover {
+      background-color: #2471a3;
+    }
+
+    .back-button {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+
+    .back-button a {
+      color: #2d98da;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>🧩 Constitution Quest</h1>
-  <div class="menu">
-    <button onclick="location.href='game.html'">🎮 Start Game</button>
-    <button onclick="location.href='classroom.html'">🧑‍🏫 Classroom Mode</button>
-    <button onclick="location.href='learn.html'">📚 Learn Mode</button>
-    <button onclick="location.href='achievements.html'">🏆 Achievements</button>
-    <button onclick="location.href='profile.html'">👤 My Profile</button>
-    <button onclick="location.href='settings.html'">⚙️ Settings</button>
+  <h1>⚖️ Welcome to Constitution Quest!</h1>
+  <p>Select your level to begin the quiz:</p>
+  <a href="beginner.html" class="level-btn">Beginner Level</a>
+  <a href="intermediate.html" class="level-btn">Intermediate Level</a>
+  <a href="advanced.html" class="level-btn">Advanced Level</a>
+
+  <div class="back-button">
+    <a href="https://github.com/yourusername/yourrepository" target="_blank">View on GitHub</a>
   </div>
 </body>
 </html>
