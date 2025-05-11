@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4e1d2;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #fffae6;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4d06f;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.level-timer .level {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.level-timer .timer {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff4f56;
+}
+
+.question-container {
+  margin-top: 30px;
+}
+
+.question-text {
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.options-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff9f00;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.controls .button {
+  width: 100px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
+}
+
+footer .progress {
+  font-size: 18px;
+}
+
+footer .buttons {
+  display: flex;
+  gap: 10px;
+}
+
+footer button {
+  width: 150px;
+  background-color: #ff7f11;
+  color: white;
+}
+
+footer button:hover {
+  background-color: #ff4f00;
+}
