@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beginner Level - Constitution Quest</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fffef7;
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .question-container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .question {
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .choices button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.75rem;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #3498db;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .choices button:hover {
+      background-color: #2980b9;
+    }
+
+    .feedback {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .back-button a {
+      color: #2980b9;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔰 Beginner Quiz</h1>
+  <div class="question-container">
+    <div class="question">
+      What does Article I of the U.S. Constitution establish?
+    </div>
+    <div class="choices">
+      <button onclick="checkAnswer(this, false)">The Executive Branch</button>
+      <button onclick="checkAnswer(this, true)">The Legislative Branch</button>
+      <button onclick="checkAnswer(this, false)">The Judicial Branch</button>
+      <button onclick="checkAnswer(this, false)">The Bill of Rights</button>
+    </div>
+    <div class="feedback" id="feedback"></div>
+  </div>
+
+  <div class="back-button">
+    <a href="game.html">← Back to Level Selection</a>
+  </div>
+
+  <script>
+    function checkAnswer(button, isCorrect) {
+      const feedback = document.getElementById('feedback');
+      if (isCorrect) {
+        feedback.textContent = "✅ Correct! Article I establishes the Legislative Branch.";
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = "❌ Incorrect. Try again!";
+        feedback.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>
