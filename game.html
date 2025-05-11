@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start Game - Constitution Quest</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    .level-select {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .level-select button {
+      padding: 1rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #34495e;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .level-select button:hover {
+      background-color: #2c3e50;
+    }
+
+    .back-button {
+      margin-top: 2rem;
+      color: #2980b9;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Select Game Level</h1>
+  <div class="level-select">
+    <button onclick="location.href='beginner.html'">🔰 Beginner</button>
+    <button onclick="location.href='intermediate.html'">⚖️ Intermediate</button>
+    <button onclick="location.href='advanced.html'">🧠 Advanced</button>
+  </div>
+  <div class="back-button" onclick="location.href='index.html'">← Back to Main Menu</div>
+</body>
+</html>
