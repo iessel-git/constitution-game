@@ -3,107 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Intermediate Level - Constitution Quest</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9fdfd;
-      margin: 0;
-      padding: 2rem;
-      color: #333;
-    }
-
-    h1 {
-      text-align: center;
-      color: #2d3436;
-    }
-
-    .question-container {
-      max-width: 650px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: #f0f4f8;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .scenario {
-      font-style: italic;
-      margin-bottom: 1.2rem;
-      color: #555;
-    }
-
-    .question {
-      font-weight: bold;
-      margin-bottom: 1.5rem;
-    }
-
-    .choices button {
-      display: block;
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 8px;
-      background-color: #2d98da;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .choices button:hover {
-      background-color: #2471a3;
-    }
-
-    .feedback {
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-
-    .score-display {
-      text-align: center;
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      color: #2d3436;
-    }
-
-    .back-button {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .back-button a {
-      color: #2d98da;
-      text-decoration: underline;
-    }
-  </style>
+  <title>Constitution Quiz - Intermediate Level</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>⚖️ Intermediate Quiz</h1>
-  <div class="question-container" id="quiz"></div>
-  <div class="score-display" id="scoreDisplay"></div>
-  <div class="back-button">
-    <a href="game.html">← Back to Level Selection</a>
+  <div class="game-container">
+    <header>
+      <div class="level-timer">
+        <span class="level">INTERMEDIATE</span>
+        <span class="timer" id="timer">45</span> seconds
+      </div>
+    </header>
+    <div class="question-container">
+      <p id="question-text" class="question-text">Loading Question...</p>
+    </div>
+    <div class="options-container" id="options">
+      <!-- Answer buttons will be dynamically added here -->
+    </div>
+    <div class="controls">
+      <button id="read-context" class="button">Read Context</button>
+      <button id="hint" class="button">Smart Hint</button>
+      <button id="shuffle" class="button">Shuffle Questions</button>
+    </div>
+    <footer>
+      <div class="progress">
+        <span id="current-question">1/10</span>
+      </div>
+      <div class="buttons">
+        <button id="submit" class="button">Submit</button>
+        <button id="next" class="button">Next Puzzle</button>
+      </div>
+    </footer>
   </div>
-
   <script src="game.js"></script>
-  <script>
-    function displayNextQuestion(questions) {
-      if (currentQuestionIndex < questions.length) {
-        const question = questions[currentQuestionIndex];
-        displayQuestion(question, 'quiz');
-        currentQuestionIndex++;
-      } else {
-        document.getElementById('quiz').innerHTML = '<h3>🎉 You completed the Intermediate Level!</h3>';
-        markLevelComplete('intermediate');
-      }
-    }
-
-    loadQuestions('intermediate', () => {
-      displayNextQuestion(shuffledQuestions);
-      showScore('scoreDisplay');
-    });
-  </script>
 </body>
 </html>
